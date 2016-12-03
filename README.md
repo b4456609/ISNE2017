@@ -1,4 +1,4 @@
-# TCSE2016 Website
+# ISNE2017 Website
 
 ## Requirements
 - [Node](https://nodejs.org) 4.0 or newer
