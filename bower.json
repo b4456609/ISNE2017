@@ -3,8 +3,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "~3.3.5",
-    "jquery_lazyload": "jquery.lazyload#^1.9.7",
-    "components-font-awesome": "^4.6.3"
+    "jquery_lazyload": "jquery.lazyload#^1.9.7"
   },
   "overrides": {
     "bootstrap": {
@@ -15,9 +14,5 @@
         "dist/fonts/*"
       ]
     }
-  },
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^2.5.3"
   }
 }
