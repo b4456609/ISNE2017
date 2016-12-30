@@ -187,8 +187,19 @@ gulp.task('criticalcss', function (cb) {
   });
 });
 
+gulp.task('generate-service-worker', function(callback) {
+  var swPrecache = require('sw-precache');
+  var rootDir = 'dist';
+
+  swPrecache.write(`${rootDir}/service-worker.js`, {
+    staticFileGlobs: [rootDir + '/**/*.{js,html,css,jpg,gif,svg,eot,ttf,woff}'],
+    stripPrefix: rootDir
+  }, callback);
+});
+
 gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
   gulp.start('criticalcss');
+  gulp.start('generate-service-worker')
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
