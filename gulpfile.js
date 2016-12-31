@@ -195,7 +195,7 @@ gulp.task('generate-service-worker', function(callback) {
     staticFileGlobs: [rootDir + '/**/*.{js,html,css,jpg,gif,svg,eot,ttf,woff}'],
     stripPrefix: rootDir,
     runtimeCaching: [{
-      urlPattern: /^https:\/\/maps\.googleapis\.com\/maps/,
+      urlPattern: /^https:\/\/maps\.googleapis\.com/,
       handler: 'networkFirst'
     }]
   }, callback);
