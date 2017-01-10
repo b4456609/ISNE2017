@@ -194,6 +194,7 @@ gulp.task('generate-service-worker', function(callback) {
   swPrecache.write(`${rootDir}/service-worker.js`, {
     staticFileGlobs: [rootDir + '/**/*.{js,html,css,jpg,gif,svg,eot,ttf,woff}'],
     stripPrefix: rootDir,
+    skipWaiting: true,
     runtimeCaching: [{
       urlPattern: /^https:\/\/maps\.googleapis\.com/,
       handler: 'networkFirst'
