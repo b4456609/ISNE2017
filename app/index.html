@@ -10,15 +10,28 @@
   <link rel="manifest" href="manifest.json">
   <!-- Add to homescreen for Chrome on Android -->
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="application-name" content="TCSE2016">
-  <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+  <meta name="application-name" content="ISNE2017">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+  <link rel="icon" type="image/png" sizes="192x192" href="images/touch/android-icon-192x192.png">
   <!-- Add to homescreen for Safari on iOS -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="TCSE2016">
-  <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="ISNE2017">
+  <link rel="apple-touch-icon" sizes="57x57" href="images/touch/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="images/touch/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="images/touch/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="images/touch/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="images/touch/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="images/touch/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="images/touch/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="images/touch/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/touch/apple-icon-180x180.png">
   <!-- Tile icon for Win8 (144x144 + tile color) -->
-  <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+  <meta name="msapplication-TileImage" content="images/touch/ms-icon-144x144.png">
   <meta name="msapplication-TileColor" content="#2F3BA2">
   <!-- Color the status bar on mobile devices -->
   <meta name="theme-color" content="#2c3e50">
@@ -56,7 +69,7 @@
             <a href="#news">News</a>
           </li>
           <li class="page-scroll nav-item">
-            <a href="#thesis">Scopes</a>
+            <a href="#scopes">Scopes</a>
           </li>
           <li class="page-scroll nav-item">
             <a href="#organization">Committee</a>
@@ -100,11 +113,11 @@
             <span class="subname">ISNE 2017, Keelung, 2017/5/23~2017/5/25</span>
             <br />
             <br />
-            <div class="skills text-left text-justify">General Information The 6th International Symposium on Next-Generation Electronics (ISNE 2017) will be held at National Taiwan Ocean University in Keelung, Taiwan from May 23rd to 25th, 2017. Past ISNE symposiums were held successfully in
-              Kaoshiung in 2010 and 2013, Taoyuan in 2014, Taipei in 2015, and Hsinchu in 2016. The conference is supported by the IEEE Electron Devices Society, IEEE Taipei Section, and the Ministry of Science and Technology, Taiwan. The ISNE 2017 will
-              feature plenary and invited talks by famous scientists in Microelectronic Devices and Materials, Microelectronic Circuits and Systems, Compound Semiconductor Materials, Electronic and Photonic Devices, Computer and Communication Engineering,
-              Renewable and Sustainable Energy Device and Materials, Sensors, Packaging technologies, and Novel Applications in Science and Technology, Biomedical Electronics, and Advanced IC optoelectronic and MEMS Technologies. All accepted papers will
-              be invited to submit to the IEEE Xplore database with Engineering Index (EI).</div>
+            <div class="skills text-left text-justify">The 6th International Symposium on Next-Generation Electronics (ISNE 2017) will be held at National Taiwan Ocean University in Keelung, Taiwan from May 23rd to 25th, 2017. Past ISNE symposiums were held successfully in Kaoshiung in 2010 and
+              2013, Taoyuan in 2014, Taipei in 2015, and Hsinchu in 2016. The conference is supported by the IEEE Electron Devices Society, IEEE Taipei Section, and the Ministry of Science and Technology, Taiwan. The ISNE 2017 will feature plenary and
+              invited talks by famous scientists in Microelectronic Devices and Materials, Microelectronic Circuits and Systems, Compound Semiconductor Materials, Electronic and Photonic Devices, Computer and Communication Engineering, Renewable and Sustainable
+              Energy Device and Materials, Sensors, Packaging technologies, and Novel Applications in Science and Technology, Biomedical Electronics, and Advanced IC optoelectronic and MEMS Technologies. All accepted papers will be invited to submit to
+              the IEEE Xplore database with Engineering Index (EI).</div>
           </div>
         </div>
       </div>
@@ -131,11 +144,11 @@
       </div>
     </div>
   </section>
-  <section id="Scope" class="success">
+  <section id="scopes" class="success">
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
-          <h2>Scope</h2>
+          <h2>Scopes</h2>
         </div>
       </div>
       <div class="row">
@@ -579,8 +592,8 @@
       </div>
     </div>
   </section>
-  <section class="success shorter-section" id="location">
-    <div class="container-fluid text-center">
+  <section class="shorter-section" id="location">
+    <div class="container">
       <div class="row">
         <div class="col-xs-12">
           <h1>Location</h1>
@@ -818,20 +831,32 @@
   <script src="scripts/cbpAnimatedHeader.js"></script>
   <script src="scripts/freelancer.js"></script>
   <!-- endbuild -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      // console.log("Will the service worker register?");
+      navigator.serviceWorker.register('service-worker.js')
+        .then(function(reg) {
+          // console.log("Yes, it did.");
+        }).catch(function(err) {
+          // console.log("No it didn't. This happened: ", err)
+        });
+    }
+  </script>
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
   <script>
-    (function(b, o, i, l, e, r) {
-      b.GoogleAnalyticsObject = l;
-      b[l] || (b[l] = function() {
-        (b[l].q = b[l].q || []).push(arguments)
-      });
-      b[l].l = +new Date;
-      e = o.createElement(i);
-      r = o.getElementsByTagName(i)[0];
-      e.src = 'https://www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e, r)
-    }(window, document, 'script', 'ga'));
-    ga('create', 'UA-XXXXX-X');
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-XXXXX-X', 'auto');
     ga('send', 'pageview');
   </script>
 </body>

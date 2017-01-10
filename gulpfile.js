@@ -60,7 +60,7 @@ gulp.task('html', ['styles', 'scripts'], () => {
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
     .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: false})))
-    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
+    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true, minifyCSS: true, minifyJS: true, removeComments: true})))
     .pipe(gulp.dest('dist'));
 });
 
@@ -187,8 +187,23 @@ gulp.task('criticalcss', function (cb) {
   });
 });
 
+gulp.task('generate-service-worker', function(callback) {
+  var swPrecache = require('sw-precache');
+  var rootDir = 'dist';
+
+  swPrecache.write(`${rootDir}/service-worker.js`, {
+    staticFileGlobs: [rootDir + '/**/*.{js,html,css,jpg,gif,svg,eot,ttf,woff}'],
+    stripPrefix: rootDir,
+    runtimeCaching: [{
+      urlPattern: /^https:\/\/maps\.googleapis\.com/,
+      handler: 'networkFirst'
+    }]
+  }, callback);
+});
+
 gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
   gulp.start('criticalcss');
+  gulp.start('generate-service-worker')
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
