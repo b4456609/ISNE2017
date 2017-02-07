@@ -96,6 +96,9 @@
                 <a href="#transportation">Transportation</a>
               </li>
               <li class="page-scroll nav-item">
+                <a href="#accommodation">Accommodation</a>
+              </li>
+              <li class="page-scroll nav-item">
                 <a href="#ntou">About NTOU</a>
               </li>
             </ul>
@@ -149,7 +152,19 @@
           </ul>
         </div>
         <div class="col-md-10">
-          <p class="page-scroll"><a href="#transportation">Transportation</a> is available</p>
+          <p class="page-scroll">Add <a href="#accommodation">Accommodation</a> information</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <ul>
+            <li>
+              <p><strong>2017/02/07</strong></p>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-10">
+          <p class="page-scroll">Add <a href="#transportation">Transportation</a> information</p>
         </div>
       </div>
       <div class="row">
@@ -650,7 +665,7 @@
       <div class="row">
         <div class="col-xs-12">
           <h1>Transportation</h1>
-          <p>Taiwan Taoyuan International Airport → Taipei Station → TRA Keelung Station → NTOU</p>
+          <p>(1)Taiwan Taoyuan International Airport → (2)Taipei Station → (3)TRA Keelung Station → (4)NTOU</p>
         </div>
       </div>
     </div>
@@ -681,7 +696,29 @@
       </div>
     </div>
   </section>
-  <section class="success" id="ntou">
+  <section class="grey" id="accommodation">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <h1>Accommodation</h1>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid" style="height: 450px;" id="accommodationMap"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <ol style=" line-height: 3em">
+            <li>Evergreen Laurel Hotel (長榮桂冠) <a href="http://www.evergreen-hotels.com/branch2/offers/?lang=en&d1b_Sn=4" class="btn btn-primary btn-sm" style="color:white;">Official Site</a></li>
+            <li>E-Coast Star Hotel (東岸之星旅店) <a href="http://www.ecoast-star.com.tw/english/index.aspx" class="btn btn-primary btn-sm" style="color:white;">Official Site</a></li>
+            <li>KHotels (柯達飯店) <a href="http://www.khotels.com.tw/en/" class="btn btn-primary btn-sm" style="color:white;">Official Site</a></li>
+            <li>Herb Art Hotel (香草藝術旅店) <a href="http://www.herbart.com.tw/english/index.html" class="btn btn-primary btn-sm" style="color:white;">Official Site</a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="ntou">
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
@@ -733,9 +770,10 @@
   </footer>
   <script defer async src="https://maps.googleapis.com/maps/api/js?callback=init"></script>
   <script>
-    function initTransportMap() {
+    function initAccommodationMap() {
       var mapOptions = {
-        zoom: 17,
+        zoom: 16,
+        center: new google.maps.LatLng(25.13334,121.74608),
         scrollwheel: false,
         draggable: !("ontouchend" in document),
         styles: [{
@@ -759,14 +797,82 @@
         }]
       };
 
+      var mapElement = document.getElementById('accommodationMap');
+      var map = new google.maps.Map(mapElement, mapOptions);
+
+      new google.maps.Marker({
+        position: new google.maps.LatLng(25.13504,121.74608),
+        map: map,
+        label: '1',
+      });
+      new google.maps.Marker({
+        position: new google.maps.LatLng(25.132984, 121.745334),
+        map: map,
+        label: '2',
+      });
+      new google.maps.Marker({
+        position: new google.maps.LatLng(25.132466, 121.745127),
+        map: map,
+        label: '3',
+      });
+      new google.maps.Marker({
+        position: new google.maps.LatLng(25.130108, 121.746741),
+        map: map,
+        label: '4',
+      });
+
+    }
+
+    function initTransportMap() {
+      var mapOptions = {
+        zoom: 11,
+        scrollwheel: false,
+        draggable: !("ontouchend" in document),
+        center: new google.maps.LatLng(25.1016585, 121.503872),
+        styles: [{
+          "stylers": [{
+            "hue": "#1993af"
+          }]
+        }, {
+          "featureType": "road",
+          "elementType": "labels",
+          "stylers": [{
+            "visibility": "off"
+          }]
+        }, {
+          "featureType": "road",
+          "elementType": "geometry",
+          "stylers": [{
+            "lightness": 100
+          }, {
+            "visibility": "simplified"
+          }]
+        }]
+      };
+
       var mapElement = document.getElementById('transportationMap');
       var map = new google.maps.Map(mapElement, mapOptions);
-      var myMapId = '1271sLcaYSGIAQizmFTRfFqnSrjY';
-      new google.maps
-        .KmlLayer({
-          map: map,
-          url: 'https://www.google.com/maps/d/kml?mid=' + myMapId
-        });
+
+      new google.maps.Marker({
+        position: new google.maps.LatLng(25.077000, 121.232068),
+        map: map,
+        label: '1',
+      });
+      new google.maps.Marker({
+        position: new google.maps.LatLng(25.047939, 121.517163),
+        map: map,
+        label: '2',
+      });
+      new google.maps.Marker({
+        position: new google.maps.LatLng(25.131591, 121.738367),
+        map: map,
+        label: '3',
+      });
+      new google.maps.Marker({
+        position: new google.maps.LatLng(25.150104, 121.775676),
+        map: map,
+        label: '4',
+      });
     }
 
     function init() {
@@ -804,6 +910,7 @@
         title: ''
       });
       initTransportMap();
+      initAccommodationMap();
     }
 
   </script>
