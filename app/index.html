@@ -800,27 +800,37 @@
       var mapElement = document.getElementById('accommodationMap');
       var map = new google.maps.Map(mapElement, mapOptions);
 
+      var bounds = new google.maps.LatLngBounds();
+      var location1 = new google.maps.LatLng(25.13504,121.74608);
+      var location2 = new google.maps.LatLng(25.132984, 121.745334);
+      var location3 = new google.maps.LatLng(25.132466, 121.745127);
+      var location4 = new google.maps.LatLng(25.130108, 121.746741);
+
       new google.maps.Marker({
-        position: new google.maps.LatLng(25.13504,121.74608),
+        position: location1,
         map: map,
         label: '1',
       });
       new google.maps.Marker({
-        position: new google.maps.LatLng(25.132984, 121.745334),
+        position: location2,
         map: map,
         label: '2',
       });
       new google.maps.Marker({
-        position: new google.maps.LatLng(25.132466, 121.745127),
+        position: location3,
         map: map,
         label: '3',
       });
       new google.maps.Marker({
-        position: new google.maps.LatLng(25.130108, 121.746741),
+        position: location4,
         map: map,
         label: '4',
       });
-
+      bounds.extend(location1);
+      bounds.extend(location2);
+      bounds.extend(location3);
+      bounds.extend(location4);
+      map.fitBounds(bounds);
     }
 
     function initTransportMap() {
@@ -853,26 +863,37 @@
       var mapElement = document.getElementById('transportationMap');
       var map = new google.maps.Map(mapElement, mapOptions);
 
+      var bounds = new google.maps.LatLngBounds();
+      var location1 = new google.maps.LatLng(25.077000, 121.232068);
+      var location2 = new google.maps.LatLng(25.047939, 121.517163);
+      var location3 = new google.maps.LatLng(25.131591, 121.738367);
+      var location4 = new google.maps.LatLng(25.150104, 121.775676);
+
       new google.maps.Marker({
-        position: new google.maps.LatLng(25.077000, 121.232068),
+        position: location1,
         map: map,
         label: '1',
       });
       new google.maps.Marker({
-        position: new google.maps.LatLng(25.047939, 121.517163),
+        position: location2,
         map: map,
         label: '2',
       });
       new google.maps.Marker({
-        position: new google.maps.LatLng(25.131591, 121.738367),
+        position: location3,
         map: map,
         label: '3',
       });
       new google.maps.Marker({
-        position: new google.maps.LatLng(25.150104, 121.775676),
+        position: location4,
         map: map,
         label: '4',
       });
+      bounds.extend(location1);
+      bounds.extend(location2);
+      bounds.extend(location3);
+      bounds.extend(location4);
+      map.fitBounds(bounds);
     }
 
     function init() {
