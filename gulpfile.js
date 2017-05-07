@@ -202,7 +202,7 @@ gulp.task('generate-service-worker', function(callback) {
   }, callback);
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras', 'file'], () => {
   gulp.start('criticalcss');
   gulp.start('generate-service-worker')
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
